@@ -1,4 +1,7 @@
-Clone this repo in your catkin_ws
+# ${1:Project Name}
+Boilerplate code for SITL Offboard control in ROS/Gazebo
+## Installation
+Clone this repo in your catkin_ws:
 
 cd ~/catkin_ws/src
 https://github.com/jkrs/EEC193.git
@@ -6,7 +9,7 @@ https://github.com/jkrs/EEC193.git
 I'm assuming you've cloned the PX4 toolchain in: ~/drone/src/Firmware/
 if not, then do so...
 
-
+## Usage
 Steps to run: (Ctrl+Shift+T opens new terminal tab)
 
 Terminal 1:
@@ -23,3 +26,11 @@ Terminal 3:
 cd ~/catkin_ws/
 source devel/setup.bash
 rosrun UAV_Offboard offb_node
+
+
+
+
+
+
+
+
