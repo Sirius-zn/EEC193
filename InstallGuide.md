@@ -5,3 +5,4 @@
 
 <addr>
 sudo usermod -a -G dialout $USER
+<addr>
