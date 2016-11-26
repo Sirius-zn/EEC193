@@ -1,7 +1,10 @@
 
-## Prereqs: Compute running Ubuntu 14.04 and up (Do not use VMs as the simulator is too slow, just dualboot if required)
+## Prereqs: 
+Computer running Ubuntu 14.04 and up (Do not use VMs as the simulator is too slow, just dualboot if required)
 
 ## Step 1: Install the px4 toolchain prereqs
+http://dev.px4.io/starting-installing-linux.html
+http://dev.px4.io/starting-installing-linux-boutique.html
 Run
 ```
 sudo usermod -a -G dialout $USER
@@ -53,7 +56,7 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 . ~/.profile
 popd
 ```
-Now run to install 32-bit libraries (only do this if you are running a 64-bit system)
+Now run the following to install 32-bit libraries (only do this if you are running a 64-bit system)
 ```
 sudo apt-get install libc6:i386 libgcc1:i386 gcc-4.6-base:i386 libstdc++5:i386 libstdc++6:i386
 ```
@@ -77,3 +80,80 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 ## Step 2 Install ROS Indigo
 Follow the instructions on the wiki. You need to do a full desktop install. You do not have to mess around with any dependencies before the installation. 
 [ROS Indigo Installation Instructions](http://wiki.ros.org/indigo/Installation/Ubuntu)
+
+## Step 3 Install MAVROS
+After setting up ROS, you can install MAVROS with a binary installation
+```
+$ sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras
+```
+## Step 4 Install Gazebo6
+Add OSRF to sources:
+```
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/ gazebo-stable.list'
+cat /etc/apt/sources.list.d/gazebo-stable.list
+deb http://packages.osrfoundation.org/gazebo/ubuntu-stable trusty main
+wget http://packages.osrfoundation.org/gazebo.key-O- | sudo apt-key add -
+sudo apt-get update
+```
+Install Gazebo6 for ROS Indigo:
+```
+sudo apt-get install ros-indigo-gazebo6-ros
+sudo apt-get install ros-indigo-gazebo6-plugins
+```
+## Step 5 Fork the PX4 Firmware
+Reference section: http://dev.px4.io/starting-building.html
+http://dev.px4.io/simulation-gazebo.html
+Create a directory where you want to develop then run 
+```
+mkdir -p ~/src
+cd ~/src
+git clone https://github.com/PX4/Firmware.git
+cd Firmware
+git submodule update --init --recursive
+cd ..
+```
+to fork the PX4 development code into your directory
+
+Run this command to build the code
+```
+cd Firmware
+make px4fmu-v2_default
+```
+If this errors you fucked up somewhere, try re-forking the PX4 repo. Your output should look like this.
+
+```
+[100%] Linking CXX executable firmware_nuttx
+[100%] Built target firmware_nuttx
+Scanning dependencies of target build_firmware_px4fmu-v2
+[100%] Generating nuttx-px4fmu-v2-default.px4
+[100%] Built target build_firmware_px4fmu-v2
+```
+Now you should be good to go to simulate. Run this command to start a basic simulation.
+```
+make posix_sitl_default gazebo
+```
+If the build is successful then Gazebo should automatically open up, and the terminal will enter into the PX4 shell.
+```
+[init] shell id: 140735313310464
+[init] task name: px4
+
+______  __   __    ___
+| ___ \ \ \ / /   /   |
+| |_/ /  \ V /   / /| |
+|  __/   /   \  / /_| |
+| |     / /^\ \ \___  |
+\_|     \/   \/     |_/
+
+px4 starting.
+
+
+pxh>
+```
+Note that it will take a while for Gazebo to first setup as it has to generate all the models.
+After Gazebo is done loading, you can check that you've interfaced to the simulator properly by having the drone takeoff. Run this command in the terminal window with the PX4 shell
+```
+commander takeoff
+```
+After running this command in the terminal, the drone should takeoff in Gazebo.
+
+You can download QGroundControl as well. If the simulator is on, it will automatically connect to the simulated drone. You can fly missions and do all the normal QGC things from there.
