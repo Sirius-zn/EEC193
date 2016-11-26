@@ -88,25 +88,27 @@ $ sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras
 ```
 ## Step 4 Install Gazebo6
 http://gazebosim.org/tutorials?tut=install_ubuntu
-```
+
 Add OSRF to sources:
-
+```
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-
+```
 You can check to see if the file was written correctly. For example, in Ubuntu Trusty, you can type:
+```
 $ cat /etc/apt/sources.list.d/gazebo-stable.list
 deb http://packages.osrfoundation.org/gazebo/ubuntu-stable trusty main
-
+```
 Setup Keys:
+```
 wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-
-sudo apt-get update
 ```
 Install Gazebo6 for ROS Indigo:
 ```
+sudo apt-get update
 sudo apt-get install ros-indigo-gazebo6-ros
 sudo apt-get install ros-indigo-gazebo6-plugins
 ```
+
 ## Step 5 Fork the PX4 Firmware
 Reference section: http://dev.px4.io/starting-building.html
 http://dev.px4.io/simulation-gazebo.html
