@@ -1,16 +1,10 @@
 # OFFBOARD CONTROL
 Boilerplate code for SITL Offboard control in ROS/Gazebo
 ## Installation
-Clone this repo in your catkin_ws:
+I'm assuming you have gone through the install guide: https://github.com/jkrs/EEC193/blob/master/InstallGuide.md
 
-```
-cd ~/catkin_ws/src
-git clone https://github.com/jkrs/EEC193.git
-
-```
-
-I'm assuming you've cloned the PX4 toolchain in: ~/drone/src/Firmware/
-if not, then do so...
+## Pre-setup
+Create and initialize a catkin workspace: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
 # Steps to run: (Ctrl+Shift+T opens new terminal tab)
 
@@ -24,7 +18,7 @@ roslaunch UAV_Offboard px4Local.launch
 
 ## Terminal 2:
 ```
-cd ~/drone/src/Firmware/ #go to cloned px4 firmware directory
+cd ~/src/Firmware/ 
 make posix_sitl_default gazebo
 ```
 
@@ -34,7 +28,9 @@ cd ~/catkin_ws/
 source devel/setup.bash
 rosrun UAV_Offboard offb_node
 ```
-
+The drone should enter offboard control and then takeoff.
+# ROS Resources
+This sample code is provided just as a "boiler plate" example that can be extended.  You aren't going to be able to do much if you don't have a basic understanding of how ROS works.  At a minimum, you should go through the beginner tutorials here: http://wiki.ros.org/ROS/Tutorials .  This book is also a really good introduction: https://cse.sc.edu/~jokane/agitr/
 
 
 
