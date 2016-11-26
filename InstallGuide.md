@@ -157,3 +157,13 @@ commander takeoff
 After running this command in the terminal, the drone should takeoff in Gazebo.
 
 You can download QGroundControl as well. If the simulator is on, it will automatically connect to the simulated drone. You can fly missions and do all the normal QGC things from there.
+
+## Step 6:  Install Qgroundcontrol
+Use appimage found here: https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/download_and_install.html
+Give the dowloaded file execution permissions
+```
+chmod +x <filename>
+```
+## Run an offboard SITL: https://github.com/jkrs/EEC193/tree/master/UAV_Offboard
+
+
