@@ -88,8 +88,9 @@ $ sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras
 ```
 ## Step 4 Install Gazebo6
 http://gazebosim.org/tutorials?tut=install_ubuntu
-Add OSRF to sources:
 ```
+Add OSRF to sources:
+
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
 
 You can check to see if the file was written correctly. For example, in Ubuntu Trusty, you can type:
