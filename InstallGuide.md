@@ -76,4 +76,4 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 ```
 ## Step 2 Install ROS Indigo
 Follow the instructions on the wiki. You need to do a full desktop install. You do not have to mess around with any dependencies before the installation. 
-[ROS Indigo Installation Instructions]http://wiki.ros.org/indigo/Installation/Ubuntu
+[ROS Indigo Installation Instructions](http://wiki.ros.org/indigo/Installation/Ubuntu)
