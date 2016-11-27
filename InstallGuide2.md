@@ -45,8 +45,9 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
-Then you need to do a bare metal installation
-(If the output is correct, jump to step 2 directly)
+Then you need to do a bare metal installation  
+
+##(If the output is correct, jump to step 2 directly)
 ```
 pushd .
 cd ~
@@ -89,12 +90,11 @@ $ sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
 ```
 ## Step 4 Install Gazebo7
 http://gazebosim.org/tutorials?tut=install_ubuntu&ver=7.0&cat=install
-
-1 .Install
+1.Install
 ```
     curl -ssL http://get.gazebosim.org | sh
 ```
-2. Run
+2.Run
 ```
     gazebo
 ```
@@ -127,7 +127,7 @@ Scanning dependencies of target build_firmware_px4fmu-v2
 [100%] Generating nuttx-px4fmu-v2-default.px4
 [100%] Built target build_firmware_px4fmu-v2
 ```
-Gazebo 7 needs libignition-math2-dev.
+PX4 needs libignition-math2-dev.
 ```
 sudo apt-get update
 sudo apt-get install libignition-math2-dev
