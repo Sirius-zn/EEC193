@@ -29,6 +29,10 @@ source devel/setup.bash
 rosrun UAV_Offboard offb_node
 ```
 The drone should enter offboard control and then takeoff.
+
+# Troubleshooting
+If you run into an issue where the drone drifts from the held position, this is the solution: http://discuss.px4.io/t/solved-px4-sitl-position-hold-not-working/1842
+
 # ROS Resources
 This sample code is provided just as a "boiler plate" example that can be extended.  You aren't going to be able to do much if you don't have a basic understanding of how ROS works.  At a minimum, you should go through the beginner tutorials here: http://wiki.ros.org/ROS/Tutorials .  This book is also a really good introduction: https://cse.sc.edu/~jokane/agitr/
 
