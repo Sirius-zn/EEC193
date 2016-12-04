@@ -34,12 +34,19 @@ The drone should enter offboard control and then takeoff.
 ## Manually Publish Waypoints
 A graph plot shows the structure of the ROS nodes, topics, and messages.
 Open a new terminal and execute:
+### Terminal 4:
 ```
 rosrun rqt_graph rqt_graph
 ```
-
+One can see that the node **offb_node** subscribes to the topic **/mavros/state** and publishes to the topic **/mavros/setpoint_position/local**
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_graph.PNG)
+We can use the **rqt_publisher** node to manually publish our own waypoints to the **/mavros/setpoint_position/local** topic. Open the rqt_publisher by executing:
+```
+rosrun rqt_publisher rqt_publisher
+```
+Configure the window to have the same field values as this:
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_pub_settings.png)
+Go to the **Terminal 3** and kill **offb_node** (press control + c).  Now you should be able to control the drone's position by altering the **X Y Z** fields of the position message
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/pos_control.gif)
 
 # Troubleshooting
