@@ -45,7 +45,7 @@ We can use **rqt_publisher** to manually publish our own waypoints to the **/mav
 rosrun rqt_publisher rqt_publisher
 ```
 Configure the window to have the same field values as this:
-![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/settings_rqt_publisher.png)
+![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_publisher.png)
 Go to the **Terminal 3** and kill **offb_node** (press control + c).  Now you should be able to control the drone's position by altering the **X Y Z** fields of the position message
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/pos_control.gif)
 One can see the messages being published to the **/mavros/setpoint_position/local** topic by executing:
