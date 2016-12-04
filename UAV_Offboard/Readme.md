@@ -52,7 +52,7 @@ One can see the messages being published to the **/mavros/setpoint_position/loca
 ```
 rostopic echo /mavros/setpoint_position/local
 ```
-![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_topic_echo.PNG)
+![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/ros_topic_echo.PNG)
 
 # Troubleshooting
 If you run into an issue where the drone drifts from the held position, this is the solution: http://discuss.px4.io/t/solved-px4-sitl-position-hold-not-working/1842
