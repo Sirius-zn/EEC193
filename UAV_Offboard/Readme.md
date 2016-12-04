@@ -1,4 +1,4 @@
-# OFFBOARD CONTROL
+# GETTING STARTED WITH OFFBOARD CONTROL
 Boilerplate code for SITL Offboard control in ROS/Gazebo
 ## Installation
 I'm assuming you have gone through the install guide: https://github.com/jkrs/EEC193/blob/master/InstallGuide.md
@@ -40,7 +40,7 @@ rosrun rqt_graph rqt_graph
 ```
 One can see that the node **offb_node** subscribes to the topic **/mavros/state** and publishes to the topic **/mavros/setpoint_position/local**
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_graph.PNG)
-We can use the **rqt_publisher** node to manually publish our own waypoints to the **/mavros/setpoint_position/local** topic. Open the rqt_publisher by executing:
+We can use **rqt_publisher** to manually publish our own waypoints to the **/mavros/setpoint_position/local** topic. Open the rqt_publisher by executing:
 ```
 rosrun rqt_publisher rqt_publisher
 ```
@@ -48,6 +48,11 @@ Configure the window to have the same field values as this:
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_pub_settings.png)
 Go to the **Terminal 3** and kill **offb_node** (press control + c).  Now you should be able to control the drone's position by altering the **X Y Z** fields of the position message
 ![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/pos_control.gif)
+One can see the messages being published to the **/mavros/setpoint_position/local** topic by executing:
+```
+rostopic echo /mavros/setpoint_position/local
+```
+![alt tag](https://github.com/jkrs/EEC193/raw/master/UAV_Offboard/readme_resources/rqt_topic_echo.PNG)
 
 # Troubleshooting
 If you run into an issue where the drone drifts from the held position, this is the solution: http://discuss.px4.io/t/solved-px4-sitl-position-hold-not-working/1842
